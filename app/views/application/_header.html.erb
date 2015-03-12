@@ -1,0 +1,2 @@
+<%= "Currently logged in as #{current_user.email}" if logged_in? %>
+<%= button_to "Logout", session_url , method: :delete if logged_in? %>
