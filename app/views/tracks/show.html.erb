@@ -1,0 +1,5 @@
+<h1><%= @track.name %></h1>
+
+<p>Track from album <%= link_to "#{ @track.album.name}", album_url(@track.album) %> by <%= @track.album.band.name %></p>
+
+<p><%= @track.lyrics %></p>

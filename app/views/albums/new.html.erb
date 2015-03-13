@@ -23,6 +23,16 @@
   </select>
   <br>
 
+  <% Album::RECORDING_TYPES.each do |type| %>
+    <label for="<%= type %>"><%= type.capitalize %> Album<label>
+    <input type="radio"
+           name="album[recording_type]"
+           value="<%= type %>"
+           id="<%= type %>"
+           <%= 'checked="checked"' if type == @album.recording_type %>>
+           <br>
+  <% end %>
+
   <input type="submit"
          value="CREATE ALBUM">
 

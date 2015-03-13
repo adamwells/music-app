@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  lyrics     :text
+#  track_type :string
 #
 
 require 'test_helper'

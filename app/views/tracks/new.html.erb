@@ -1,0 +1,44 @@
+<h1>Add a track!</h1>
+
+<form action="<%= tracks_url %>" method="POST">
+
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <label for="track_name">Name:</label>
+  <input name="track[name]"
+         id="track_name"
+         value="<%= @track.name %>">
+  <br>
+
+  <label for="track_album">Album:</label>
+  <select name="track[album_id]"
+          id="track_album">
+      <% @albums.each do |album| %>
+        <option value="<%= album.id %>"
+        <%= "selected = 'selected'" if album.id == @album.id %>>
+        <%= album.name %>
+        </option>
+      <% end %>
+  </select>
+  <br>
+
+
+  <% Track::TRACK_TYPES.each do |type| %>
+    <label for="<%= type %>"><%= type.capitalize %> Track</label>
+    <input type="radio"
+           name="track[track_type]"
+           value="<%= type %>"
+           id="<%= type %>"
+           <%= 'checked="checked"' if type == @track.track_type %>>
+           <br>
+  <% end %>
+
+  <label for="track_lyrics">Lyrics:</label>
+  <textarea name="track[lyrics]"
+            id="track_lyrics"><%= @track.lyrics %></textarea>
+  <br>
+
+  <input type="submit" value="CREATE TRACK">
+</form>
