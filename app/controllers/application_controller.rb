@@ -22,4 +22,11 @@ class ApplicationController < ActionController::Base
     current_user.reset_session_token!
     session[:session_token] = nil
   end
+
+  def verify_logged_in
+    unless logged_in?
+      flash[:notice] = "You must be logged in to do that!"
+      redirect_to new_session_url
+    end
+  end
 end

@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_action :verify_logged_in
+
   def new
     @bands = Band.all
     @band = Band.find(params[:band_id])

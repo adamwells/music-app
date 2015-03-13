@@ -1,4 +1,6 @@
 class BandsController < ApplicationController
+  before_action :verify_logged_in
+
   def new
     @band = Band.new
   end
@@ -16,6 +18,10 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.find(params[:id])
+  end
+
+  def index
+    @bands = Band.all
   end
 
   private
