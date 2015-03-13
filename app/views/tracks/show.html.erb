@@ -3,3 +3,14 @@
 <p>Track from album <%= link_to "#{ @track.album.name}", album_url(@track.album) %> by <%= @track.album.band.name %></p>
 
 <p><%= @track.lyrics %></p>
+
+<h3>New Note</h3>
+<%= render 'notes/form' %>
+
+<h3>Notes</h3>
+<ul>
+  <% @track.notes.reverse.each do |note| %>
+    <li><p><%= note.body %></p></li>
+    <br>
+  <% end %>
+</ul>
